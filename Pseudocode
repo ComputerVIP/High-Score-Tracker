@@ -1,1 +1,31 @@
 This is the psuedocode for the project
+
+
+Vincent's Pseudocode
+Reaction test game:
+    get a random time to wait between 0 and 10 seconds
+    Wait that long
+    Make the screen white for a random time between 0.1 and 1 second
+    If the screen is clicked during that time:
+        Add 1 to the score of the user, and the amount of rounds done
+        Reset
+    If not:
+        Reset and only add one to the amount of rounds done
+    Once done:
+        Show score over rounds
+        LUKE'S PART HERE
+Number Guess game:
+    Have player guess a number
+    Have computer guess a number
+    If numbers are same:
+        Add 1 to amount of rounds played and score
+        Repeat
+    If not:
+        Add 1 to amunt of rounds played
+        Repeat
+    Once done:
+        Show score over rounds
+        LUKE'S PART HERE
+
+Sort scores
+    Add scores to list, sort by highest, show
