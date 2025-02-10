@@ -2,3 +2,15 @@ This is the psuedocode for the project
 
 LUKE'S PSEUDOCODE
 
+(after a game ends)
+
+ask for the user's name
+if that name already has a profile
+    put new scores on the file
+    tell the user that the scores were put in
+if else that name doesn't have a profile
+    ask the user for their favorite game genre
+    create a profile with their information and scores and put it on the file
+    tells the user that their profile was made
+
+(Lets the user play the game again if they want to or go to the game menu)
