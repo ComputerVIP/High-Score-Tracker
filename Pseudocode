@@ -19,23 +19,23 @@ Fairus psuedocode
 
 start program
 ask the user for games, scores, or to exit the program
-if they choose games
-(Vincent part)
-if they choose scores
-ask user if they want to see profiles, scores, menu
-if they choose to exit the program
-the program closes
-if they choose profile
-ask if that profile exsit
-if it does exsit
-it'll print the score of that profile
-if it doesnt exsit
-tell the user it doesnt exsit
-then go back (ask user if they want to see profiles, scores, or menu)
-if they choose to see scores 
-ask the user if they want to see the reaction or guessing games score
-(luke sorts out the scores)
-display the scores
-take the user back to the (ask user if they want to see profiles, scores, or menu)
-if they choose menu
-they go back to the (games, scores, or to exit the program)
+    if they choose games
+        -(Vincent part)
+    if they choose scores
+        -ask user if they want to see profiles, scores, menu
+    if they choose to exit the program
+        -the program closes
+    if they choose profile
+        -ask if that profile exsit
+    if it does exsit
+        -it'll print the score of that profile
+    if it doesnt exsit
+        -tell the user it doesnt exsit
+        -then go back (ask user if they want to see profiles, scores, or menu)
+    if they choose to see scores 
+        -ask the user if they want to see the reaction or guessing games score
+        -(luke sorts out the scores)
+        -display the scores
+        -take the user back to the (ask user if they want to see profiles, scores, or menu)
+    if they choose menu
+        -they go back to the (games, scores, or to exit the program)
