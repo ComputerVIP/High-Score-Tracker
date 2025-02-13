@@ -48,7 +48,6 @@ ask the user for games, scores, profiles, or exit the program
         -ask the user if they want to see the reaction or guessing games score
         -VINCENT'S PART
          Sort scores by highest to lowest
-         
          Fairus psuedocode
         -display the scores
         -take the user back to the menu
