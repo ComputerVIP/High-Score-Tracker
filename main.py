@@ -179,6 +179,10 @@ def guess_1_4(repeat):
     #This is Luke's part
     return repeat
 
+# LUKE'S CODE --------------------------------------------------------------------
+def add():
+    
+
 def main(repeat):
     ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for reaction test regular\n    3 for number guess\n    4 for exit")
     if ans == "1":
