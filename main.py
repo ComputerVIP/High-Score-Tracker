@@ -1,8 +1,14 @@
 #This is the main project
 import random
 import pygame
+import cProfile
 
 repeat = 1
+
+def prfile():
+    pass
+def scores():
+    pass
 
 #Vincent's game with Luke's profiling at the end
 def react_test(repeat):
@@ -180,7 +186,7 @@ def guess_1_4(repeat):
     return repeat
 
 def main(repeat):
-    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for reaction test regular\n    3 for number guess\n    4 for exit")
+    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n    Answer here: ")
     if ans == "1":
         rct = Clicked("white", 200, 200)  
         rct, repeat = clicky(rct, repeat)
