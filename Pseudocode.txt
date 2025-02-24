@@ -62,3 +62,25 @@ ask the user for games, scores, or to exit the program
         -take the user back to the (ask user if they want to see profiles, scores, or menu)
     if they choose menu
         -they go back to the (games, scores, or to exit the program)
+
+
+
+
+
+THIS IS FOR SORTING THE USER'S SCORES!
+
+users = {
+  "Alice": {"game1": 50, "game2": 70},
+  "Bob": {"game1": 85, "game2": 60},
+  "Charlie": {"game1": 90, "game2": 55},
+}
+sorted_users = sorted(users.items(), key=lambda item: item[1]['game1'], reverse=True)
+for user, scores in sorted_users:
+  print(f"{user}: {scores['game1']}")
+
+'''
+The ##sorted()## function is employed to sort the items in the users dictionary. The lambda function serves as the sorting key.
+##users.items()## returns a view of the dictionary's items as pairs of (key, value).
+The lambda function lambda item: ##item[1]['game1']## tells the sorting function to use the score for "game1" (which is the second part of each item) as the key for sorting.
+##reverse=True## sorts the scores in descending order (highest to lowest).
+'''
