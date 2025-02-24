@@ -177,10 +177,7 @@ def guess_1_4(repeat):
     print("\n\n\n",score,"/",rounds)
     print("This is your final score")
     #This is Luke's part
-    return repeat 
-
-# LUKE'S CODE --------------------------------------------------------------------
-def add():
+    return repeat
 
 def main(repeat):
     ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for reaction test regular\n    3 for number guess\n    4 for exit")
