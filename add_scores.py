@@ -8,7 +8,7 @@ def write(): #
         writer.writeheader()
         writer.writerows(profiles)
 
-def add(score, game_name): # Finds out what to add
+def add(score, game_name): # Finds out what to add and adds the new score if it is higher
     while True:
         found = False
         name = input("What is your username?: ").strip()
@@ -39,7 +39,7 @@ def add(score, game_name): # Finds out what to add
 def add_profile(name):
     genre = input("What is your favorite game genre?: ").strip()
     new_profile = {
-        "Name": name, 
+        "Name": name,
         "React Score": 0,
         "Box Score": 0,
         "Guess Score": 0,
