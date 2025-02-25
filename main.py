@@ -2,6 +2,8 @@
 import random
 import pygame
 
+repeat = 1
+
 class Clicked(pygame.sprite.Sprite):
     def __init__(self, color, width, height): #This just makes the sprite, any value specified like rct=Clicked("insert colour here", insert width, insert height)
         pygame.sprite.Sprite.__init__(self)
