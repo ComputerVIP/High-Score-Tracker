@@ -2,6 +2,9 @@ from main import pygame
 from main import random
 
 def clicky(rct):
+
+    game_name = "Hard reaction test"
+
     score = 0
     rounds = 0
     pygame.init()
