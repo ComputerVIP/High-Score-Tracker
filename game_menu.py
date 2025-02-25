@@ -1,6 +1,8 @@
 from main import pygame
 from main import random
 
+from main import menu
+
 repeat = 1
 
 class Clicked(pygame.sprite.Sprite):
@@ -24,8 +26,8 @@ from number_guess import guess_1_4
 
 
 
-def main(repeat):
-    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for reaction test regular\n    3 for number guess\n    4 for exit\n")
+def game_main(repeat):
+    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n")
     if ans == "1":
         clicky(Clicked("white", 200, 200))
     elif ans == "2":
@@ -37,4 +39,4 @@ def main(repeat):
         repeat = 0
     return repeat
 while repeat > 0:
-    repeat = main(repeat)
+    repeat = game_main(repeat)

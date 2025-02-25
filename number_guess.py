@@ -1,6 +1,9 @@
 from main import random
 
 def guess_1_4():
+
+    game_name = "Number guess"
+
     rpt = input("How many rounds would you like to play?\n")
     try:
         rpt = int(rpt)
