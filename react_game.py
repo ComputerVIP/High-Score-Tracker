@@ -3,6 +3,8 @@ from main import random
 
 def react_test():
 
+    game_name = "Easy reaction test"
+
     #Variables to keep track of the score, and amount of rounds
     score = 0
     rounds = 0
