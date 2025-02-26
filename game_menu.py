@@ -24,7 +24,7 @@ from number_guess import guess_1_4
 
 
 def gme_main(repeat):
-    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n")
+    ans = int(input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n"))
     if ans == "1":
         clicky(Clicked("white", 200, 200))
     elif ans == "2":
