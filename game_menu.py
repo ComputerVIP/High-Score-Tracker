@@ -1,9 +1,6 @@
 import pygame
 import random
 
-from main import menu
-
-repeat = 1
 
 class Clicked(pygame.sprite.Sprite):
     def __init__(self, color, width, height): #This just makes the sprite, any value specified like rct=Clicked("insert colour here", insert width, insert height)
@@ -26,7 +23,7 @@ from number_guess import guess_1_4
 
 
 
-def game_main(repeat):
+def gme_main(repeat):
     ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n")
     if ans == "1":
         clicky(Clicked("white", 200, 200))
@@ -39,4 +36,4 @@ def game_main(repeat):
         repeat = 0
     return repeat
 while repeat > 0:
-    repeat = game_main(repeat)
+    repeat = gme_main(repeat)
