@@ -1,5 +1,5 @@
-from main import pygame
-from main import random
+import pygame
+import random
 
 from main import menu
 

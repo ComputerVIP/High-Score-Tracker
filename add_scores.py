@@ -1,5 +1,5 @@
 #Luke Murdock, Adding Scores
-from main import csv
+import csv
 
 def write(): # 
     with open ("Scores.csv", "w", newline="") as file:
