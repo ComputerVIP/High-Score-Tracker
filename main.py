@@ -1,6 +1,4 @@
 #This is the main project
-import random
-import pygame
 import csv
 from game_menu import gme_main
 from display_scores import print_scores
