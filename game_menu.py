@@ -1,3 +1,5 @@
+import pygame
+import random
 
 
 class Clicked(pygame.sprite.Sprite):
