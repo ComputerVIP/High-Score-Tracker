@@ -78,9 +78,14 @@ sorted_users = sorted(users.items(), key=lambda item: item[1]['game1'], reverse=
 for user, scores in sorted_users:
   print(f"{user}: {scores['game1']}")
 
-'''
+
 The ##sorted()## function is employed to sort the items in the users dictionary. The lambda function serves as the sorting key.
 ##users.items()## returns a view of the dictionary's items as pairs of (key, value).
 The lambda function lambda item: ##item[1]['game1']## tells the sorting function to use the score for "game1" (which is the second part of each item) as the key for sorting.
 ##reverse=True## sorts the scores in descending order (highest to lowest).
-'''
+
+
+try:
+    VARIABLE NAME = int(input(PUT YOUR STUFF HERE))
+except:
+    print(ERROR MESSAGE HERE)

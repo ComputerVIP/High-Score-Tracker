@@ -3,40 +3,41 @@ import random
 import pygame
 import csv
 
-repeat = 1
-
-class Clicked(pygame.sprite.Sprite):
-    def __init__(self, color, width, height): #This just makes the sprite, any value specified like rct=Clicked("insert colour here", insert width, insert height)
-        pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.Surface([width, height])
-        self.image.fill(color)
-        self.rect = self.image.get_rect()
-        self.randomize_position()
-
-    def randomize_position(self): #This just randomises the sprite's position on screen
-        #Adjusted to be -200 so it never goes off screen
-        self.rect.x = random.randint(200, 1030)
-        self.rect.y = random.randint(200, 470)
-
-from box_react_game import clicky
-from react_game import react_test
-from number_guess import guess_1_4
+from game_menu import gme_main
+from display_scores import print_scores
+#from display_profiles import print_profiles
 
 
+profiles = []
+#
+with open("Scores.csv", "r") as file:
+    reader = csv.reader(file)
+    for row_index, row in enumerate(reader):
+        if row_index == 0:
+            detail_types = row
+            continue
+        profile = {}
+        for detail_index, detail in enumerate(row):
+            if detail_index == 1 or detail_index == 2 or detail_index == 3:
+                detail = int(detail)
+            profile.update({detail_types[detail_index]:detail})
+        profiles.append(profile)
 
 
 
-def main(repeat):
-    ans = input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n")
-    if ans == "1":
-        clicky(Clicked("white", 200, 200))
-    elif ans == "2":
-        guess_1_4()
-    elif ans == "3":
-        react_test()
-    else:
-        print("Goodbye!")
-        repeat = 0
-    return repeat
-while repeat > 0:
-    main(repeat)
+def menu(): # Introduces the program and then lets the user choose one of the options
+    print("Welcome to this game program, it has two different games and keeps tracks of scores and user profiles")
+    while True: # FIX INT INPUT!!!
+        choice = input("\nGames(1) Scores(2) Profiles(3) Exit(4)\n")
+        if choice == 1:
+            gme_main(1)
+        elif choice == 2:
+            print_scores()
+        elif choice == 3:
+            print_profiles()
+        elif choice == 4:
+            print("Come Back Soon!")
+            break
+        else:
+            print("Something Broke")
+            continue
