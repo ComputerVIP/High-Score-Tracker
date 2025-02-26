@@ -1,17 +1,15 @@
 import csv
 
-ans = input("What is your name?\n")
-
 with open("Scores.csv", "r") as file:
-    reader = csv.reader(file)
-    for row in reader:
-        if ans.upper() == row[1].upper():
-            ask = input("What is the password for this profile?\n")
-            if ask.upper() == row[0].upper():
-                print("Name: ",row[1])
-                print("\nHard reaction test score: ",row[2])
-                print("Easy reaction test score: ",row[3])
-                print("Number guess score: ",row[4])
-                print("\nProfile: ",row[5])
-        else:
-            pass
+  reader = csv.reader(file)
+  next(file)
+  users = []
+  for row in reader:
+      users.append([row[1], row[2]])
+  sorted_users = []
+  for user in users:
+      sorted_users.append(user[1] + " " + user[0])
+  sorted_users = sorted(sorted_users, reverse=True)
+  for user in sorted_users:
+    name, score = user.split(" ")
+    print(f"{score} {name}")
