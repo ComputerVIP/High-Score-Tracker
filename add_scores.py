@@ -81,5 +81,5 @@ def add_score(score, game_name): # Adds the user's new score to their profile if
         profiles[found_ind][f"{game_name} Score"] = score
         print("Successfully Added Your New Highest Score!")
     elif score <= profiles[found_ind][f"{game_name} Score"]:
-        print("You did not score higher than your highest score, so your score wasn't added")
-    write()
+        print("You did not score higher than your highest score, so your score wasn't added\n")
+    write(profiles)
