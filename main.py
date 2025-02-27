@@ -3,6 +3,7 @@ import csv
 
 from game_menu import gme_main
 from display_scores_and_profiles import print_scores
+from display_scores_and_profiles import print_profiles
 #from display_profiles import print_profiles
 
 def menu(): # Introduces the program and then lets the user choose one of the options
@@ -16,8 +17,8 @@ def menu(): # Introduces the program and then lets the user choose one of the op
             gme_main(1)
         elif choice == 2:
             print_scores()
-#        elif choice == 3:
-#            print_profiles()
+        elif choice == 3:
+            print_profiles()
         elif choice == 4:
            print("Come Back Soon!")
            break
