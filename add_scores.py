@@ -1,5 +1,5 @@
 #Luke Murdock, Adding Scores
-import csv
+from main import csv
 
 def read_file(): # Turns a file into a list of dictionary profiles
     profiles = []
@@ -24,7 +24,34 @@ def write(profiles): # Writes the list of dictonary profiles onto the file
         writer.writeheader()
         writer.writerows(profiles)
 
-def add_score(score, game_name): # Adds the user's new score to their profile if they have it's pasword or else it lets them create a new profile
+def add_profile(): # Creates a new profile and puts it onto the list of profiles
+    name = input("What is your username for your new profile?:\n").strip()
+    password = input("What is your password for your new profile?:\n").strip()
+    genre = input("What is your favorite game genre?:\n").strip()
+    new_profile = {
+        "Password": password,
+        "Name": name,
+        "React Score": 0,
+        "Box Score": 0,
+        "Guess Score": 0,
+        "Genre": genre }
+    return new_profile
+
+def create_profile_choice(): # Lets the user decide if they want to create a new profile or try to find their profile again
+    while True:
+        try:
+            choice = int(input("Couldn't Find Profile\nTry Again(1) Create Profile(2)\n").strip())
+        except:
+            print("Invalid Input Type")
+            continue
+        if choice <= 0 or choice > 2:
+            print("Not In Range")
+            continue
+        elif choice > 0 or choice <= 2:
+            break
+        return choice
+
+def add_score(score, game_name): # Adds the user's new score to their profile if they have its pasword or else it lets them create a new profile
     profiles = read_file()
     while True:
         found = False
@@ -48,36 +75,9 @@ def add_score(score, game_name): # Adds the user's new score to their profile if
                 print("Added Your Profile!")
                 found_ind = -1
                 break
-    if score > profiles[found_ind][f"{game_name} Scores"]:
-        profiles[found_ind][f"{game_name} Scores"] = score
+    if score > profiles[found_ind][f"{game_name} Score"]:
+        profiles[found_ind][f"{game_name} Score"] = score
         print("Successfully Added Your New Highest Score!")
-    elif score <= profiles[found_ind][f"{game_name} Scores"]:
+    elif score <= profiles[found_ind][f"{game_name} Score"]:
         print("You did not score higher than your highest score, so your score wasn't added")
     write()
-
-def create_profile_choice(): # Lets the user decide if they have want to create a new profile or try to find their profile again
-    while True:
-        try:
-            choice = int(input("Couldn't Find Profile\nTry Again(1) Create Profile(2)\n").strip())
-        except:
-            print("Invalid Input Type")
-            continue
-        if choice <= 0 or choice > 2:
-            print("Not In Range")
-            continue
-        elif choice > 0 or choice <= 2:
-            break
-        return choice
-
-def add_profile():
-    name = input("What is your username for your new profile?:\n").strip()
-    password = input("What is your password for your new profile?:\n").strip()
-    genre = input("What is your favorite game genre?:\n").strip()
-    new_profile = {
-        "Password": password,
-        "Name": name,
-        "React Score": 0,
-        "Box Score": 0,
-        "Guess Score": 0,
-        "Genre": genre }
-    return new_profile
