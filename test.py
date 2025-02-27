@@ -5,7 +5,7 @@ with open("Scores.csv", "r") as file:
   next(file)
   users = []
   for row in reader:
-    users.append([row[1], row[2]])
+    users.append([row[1], row[2]]) #Look at the score basics to make sure the second number corresponds to the score
   sorted_users = []
   for user in users:
     sorted_users.append(user[1] + " " + user[0])
