@@ -1,7 +1,8 @@
 #This is the main project
 import csv
+
 from game_menu import gme_main
-from display_scores import print_scores
+from display_scores_and_profiles import print_scores
 #from display_profiles import print_profiles
 
 def menu(): # Introduces the program and then lets the user choose one of the options
