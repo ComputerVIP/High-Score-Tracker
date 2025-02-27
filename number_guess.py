@@ -1,4 +1,4 @@
-from main import random
+import random
 
 def guess_1_4():
 

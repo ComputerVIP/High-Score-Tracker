@@ -1,7 +1,9 @@
 #This is the main project
-import random
-import pygame
 import csv
+from game_menu import gme_main
+from display_scores import print_scores
+#from display_profiles import print_profiles
+
 
 profiles = []
 #
@@ -18,25 +20,23 @@ with open("Scores.csv", "r") as file:
             profile.update({detail_types[detail_index]:detail})
         profiles.append(profile)
 
-from game_menu import game_main
-from display_scores import print_scores
-from display_profiles import print_profiles
+
 
 def menu(): # Introduces the program and then lets the user choose one of the options
     print("Welcome to this game program, it has two different games and keeps tracks of scores and user profiles")
     while True: # FIX INT INPUT!!!
-        choice = input("\nGames(1) Scores(2) Profiles(3) Exit(4)\n", 4)
+        choice = input("\nGames(1) Scores(2) Profiles(3) Exit(4)\n")
         if choice == 1:
-            game_main()
+            gme_main(1)
         elif choice == 2:
             print_scores()
-        elif choice == 3:
-            print_profiles()
-        elif choice == 4:
-            print("Come Back Soon!")
-            break
-        else:
-            print("Something Broke")
-            continue
+#        elif choice == 3:
+#            print_profiles()
+#        elif choice == 4:
+#            print("Come Back Soon!")
+#            break
+#        else:
+#            print("Something Broke")
+#            continue
 
 menu()
