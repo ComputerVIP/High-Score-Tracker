@@ -1,5 +1,5 @@
 #Luke Murdock, Adding Scores
-from main import csv
+import csv
 
 def read_file(): # Turns a file into a list of dictionary profiles
     profiles = []
@@ -11,7 +11,7 @@ def read_file(): # Turns a file into a list of dictionary profiles
                 continue
             profile = {}
             for detail_index, detail in enumerate(row):
-                if detail_index == 1 or detail_index == 2 or detail_index == 3:
+                if detail_index == 2 or detail_index == 3 or detail_index == 4:
                     detail = int(detail)
                 profile.update({detail_types[detail_index]:detail})
             profiles.append(profile)
@@ -75,6 +75,8 @@ def add_score(score, game_name): # Adds the user's new score to their profile if
                 print("Added Your Profile!")
                 found_ind = -1
                 break
+        elif found == True:
+            break
     if score > profiles[found_ind][f"{game_name} Score"]:
         profiles[found_ind][f"{game_name} Score"] = score
         print("Successfully Added Your New Highest Score!")
