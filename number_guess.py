@@ -13,6 +13,7 @@ def guess_1_4():
     score = 0
     rounds = 0
     while rpt > 0:
+        # TODO: MUST ADD TRY AND EXCEPT FOR ERROR HANDLING!
         gs = int(input("\n\nGuess a number 1-4!\n")) #Get user guess
         cgs = random.randint(1,4) #Computer guesses a number
         if gs == cgs: #If numbers are the same
