@@ -5,6 +5,7 @@ import csv
 def print_profiles():
     ans = input("What is your name?\n")
     found = False
+    
 
     with open("Scores.csv", "r") as file:
         reader = csv.reader(file)
