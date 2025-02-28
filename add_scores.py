@@ -39,9 +39,16 @@ def add_profile(score, game_name): # Creates a new profile and puts it onto the 
     return new_profile
 
 def create_profile_choice(): # Lets the user decide if they want to create a new profile or try to find their profile again
+    less = False
+    above = False
     while True:
         try:
-            choice = int(input("Couldn't Find Profile\nTry Again(1) Create Profile(2)\n").strip())
+            while not (less and above):
+                choice = int(input("Couldn't Find Profile\nTry Again(1) Create Profile(2)\n").strip())
+                if choice <= 2:
+                    if choice >= 1:
+                        above = True
+                        less = True
         except:
             print("Invalid Input Type")
             continue
