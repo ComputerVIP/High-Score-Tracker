@@ -72,4 +72,3 @@ def guess_1_4():
 
     add_score(score, game_name) #Luke's part
     return
-guess_1_4()

@@ -35,4 +35,3 @@ def print_scores():
         # Print the sorted scores
         for user in sorted_users:
             print(f"{user[1]} {user[0]}")
-print_scores()
