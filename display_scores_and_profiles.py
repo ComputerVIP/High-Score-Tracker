@@ -10,8 +10,8 @@ def print_profiles():
         for row in reader:
             if ans.upper() in str(row[1]).upper():
                 print("Name: ",row[1])
-                print("\nHard reaction test score: ",row[2])
-                print("Easy reaction test score: ",row[3])
+                print("\nEasy reaction test score: ",row[2])
+                print("Hard reaction test score: ",row[3])
                 print("Number guess score: ",row[4])
                 print("\nProfile: ",row[5])
                 found = True
