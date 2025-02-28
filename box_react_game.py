@@ -49,7 +49,7 @@ def clicky(rct):
             elapsed_time = (pygame.time.get_ticks() - start_time) / 1000 #The time since the start time
             if click_detected: #If there is a click
                 rounds += 1
-                print(f"Round {rounds} complete! Score: {score}")
+                print(f"{score}/{rounds}\n")
                 waiting_for_click = False
                 screen.fill("black")
                 pygame.display.flip()
@@ -61,7 +61,7 @@ def clicky(rct):
                 pygame.display.flip()
 
         clock.tick(60) #How fast game ticks
-
     pygame.quit()
+    print(f'\n\nFinal score:\n{score}/{rounds}')
     add_score(score, game_name)
     return
