@@ -7,9 +7,9 @@ def menu(repeat):
     print("\nWelcome to this game program! It has two different games and keeps track of scores and user profiles.")
     try:
         choice = int(input('''What would you like to do?
-    Games(1)
-    Scores(2)
-    Profiles(3)
+    Play games(1)
+    Show highscores(2)
+    Show your profile(3)
     Exit(4)
 '''))
     except ValueError:
