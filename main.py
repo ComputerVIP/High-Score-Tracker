@@ -1,4 +1,4 @@
-#This is the main project
+#Imports menus and functions for profiles
 from game_menu import name_game
 from sort_scores import print_scores
 from display_scores_and_profiles import print_profiles
@@ -12,13 +12,13 @@ def menu(repeat):
     Show your profile(3)
     Exit(4)
 '''))
-    except ValueError:
+    except ValueError: #Makes sure it it a valid input type
         print("Invalid Input Type")
         return repeat
 
     if choice == 1:
         result = name_game(repeat)
-        if result != 0:  
+        if result != 0:  #Makes sure it goes back to this main menu
             repeat = result
     elif choice == 2:
         print_scores()
@@ -26,7 +26,7 @@ def menu(repeat):
         print_profiles()
     elif choice == 4:
         print("Come Back Soon!")
-        return 0
+        return 0 #Ends the program
     else:
         print("Not In Range")
 
@@ -35,4 +35,4 @@ def menu(repeat):
 if __name__ == "__main__":
     repeat = 1
     while repeat > 0:
-        repeat = menu(repeat)
+        repeat = menu(repeat) #Makes sure the menu only runs when called

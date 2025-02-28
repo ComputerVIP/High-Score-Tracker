@@ -1,6 +1,7 @@
 import pygame
 import random
 from add_scores import add_score
+import csv
 
 def clicky(rct):
     print("You will need to click the white box as it appears to make your score increase!")
@@ -68,5 +69,25 @@ def clicky(rct):
         clock.tick(60) #How fast game ticks
     pygame.quit()
     print(f'\n\nFinal score:\n{score}/{rounds}')
+
+    with open("Scores.csv", "r") as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip header line
+        users = []
+        
+        # Collect user data
+        for row in reader:
+            # Assuming that row[1] is the name and row[ans + 1] is the score for the selected game
+            users.append([row[1], row[3]])  # row[1] -> name, row[ans + 1] -> score
+        
+        # Sort users based on the score in descending order
+        sorted_users = sorted(users, key=lambda user: int(user[1]), reverse=True)
+        
+        # Print the sorted scores
+        for user in sorted_users:
+            print(f"{user[1]} {user[0]}")
+            count += 1
+            if count >10:
+                break
     add_score(score, game_name)
     return

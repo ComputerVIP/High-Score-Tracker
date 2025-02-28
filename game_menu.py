@@ -12,7 +12,7 @@ class Clicked(pygame.sprite.Sprite):
         self.randomize_position()
 
     def randomize_position(self): #This just randomises the sprite's position on screen
-        #Adjusted to be -200 so it never goes off screen
+        #Adjusted to be -+250 so it never goes off screen
         self.rect.x = random.randint(250, 980)
         self.rect.y = random.randint(250, 420)
 
@@ -38,7 +38,7 @@ Which game would you like to play?
         repeat = 0
         ans = "Error"
     if ans == 1:
-        clicky(Clicked("white", 250, 250))
+        clicky(Clicked("white", 250, 250)) #Makes the sprite
     elif ans == 2:
         react_test()
     elif ans == 3:
@@ -51,4 +51,4 @@ Which game would you like to play?
 if __name__ == "__main__":
     repeat = 1
     while repeat > 0:
-        repeat = name_game(repeat)
+        repeat = name_game(repeat) #Runs the main function
