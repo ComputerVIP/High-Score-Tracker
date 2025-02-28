@@ -30,7 +30,8 @@ def react_test():
                 running = False
             if event.type == pygame.MOUSEBUTTONDOWN and waiting_for_click:
                 click_detected = True
-                print("Mouse clicked!")
+                score -= 1
+                print("Score reduced, you can't click when it's not ready!")
 
         # If waiting for the delay before reaction starts
         if reaction_start_time is not None:
@@ -70,7 +71,8 @@ def react_test():
 
     pygame.quit()
     print(f"{score}/{rounds}")
-
+    if score < 0:
+        score = 0
     add_score(score, game_name)
     return
 
