@@ -1,8 +1,9 @@
 import random
+from add_scores import add_score
 
 def guess_1_4():
 
-    game_name = "Number guess"
+    game_name = "Guess" # Number Guessing Game
 
     rpt = input("How many rounds would you like to play?\n")
     try:
@@ -27,5 +28,5 @@ def guess_1_4():
             rpt -= 1
     print("\n\n\n",score,"/",rounds)
     print("This is your final score")
-    #This is Luke's part
+    add_score(score, game_name)
     return 
