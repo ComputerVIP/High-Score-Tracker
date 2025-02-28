@@ -1,6 +1,7 @@
 import pygame
 import random
 from add_scores import add_score
+import csv
 
 def react_test():
     print("Click the screen when it is white to make the score increase!")
@@ -90,8 +91,29 @@ def react_test():
         clock.tick(60)  # Limit FPS to 60
 
     pygame.quit()
-    print(f"{score}/{rounds}")
     if score < 0:
         score = 0
+    print(f"{score}/{rounds}")
+
+    with open("Scores.csv", "r") as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip header line
+        users = []
+        
+        # Collect user data
+        for row in reader:
+            # Assuming that row[1] is the name and row[ans + 1] is the score for the selected game
+            users.append([row[1], row[2]])  # row[1] -> name, row[ans + 1] -> score
+        
+        # Sort users based on the score in descending order
+        sorted_users = sorted(users, key=lambda user: int(user[1]), reverse=True)
+        
+        # Print the sorted scores
+        for user in sorted_users:
+            print(f"{user[1]} {user[0]}")
+            count += 1
+            if count >10:
+                break
+
     add_score(score, game_name)
     return
