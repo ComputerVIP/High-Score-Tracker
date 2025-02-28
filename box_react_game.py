@@ -10,6 +10,11 @@ def clicky(rct):
     rounds = 0
     pygame.init()
     screen = pygame.display.set_mode((1280, 720)) #Change this to make the display bigger, or not as big
+    pygame.display.set_caption('Pygame Window')
+
+    # Make sure the display is updated
+    pygame.display.flip()
+
     clock = pygame.time.Clock() #Sets the base time to that of Pygame's
     running = True
     click_detected = False
