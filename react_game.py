@@ -1,9 +1,10 @@
 import pygame
 import random
+from add_scores import add_score
 
 def react_test():
 
-    game_name = "Easy reaction test"
+    game_name = "React" # Easy reaction test
 
     #Variables to keep track of the score, and amount of rounds
     score = 0
@@ -70,7 +71,7 @@ def react_test():
     pygame.quit()
     print(f"{score}/{rounds}")
 
-    #This is Luke's part
+    add_score(score, game_name)
     return
 
 

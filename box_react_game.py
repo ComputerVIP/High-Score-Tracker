@@ -1,9 +1,10 @@
 import pygame
 import random
+from add_scores import add_score
 
 def clicky(rct):
 
-    game_name = "Hard reaction test"
+    game_name = "Box" # Hard reaction test
 
     score = 0
     rounds = 0
@@ -62,5 +63,5 @@ def clicky(rct):
         clock.tick(60) #How fast game ticks
 
     pygame.quit()
-    #This is Luke's part
+    add_score(score, game_name)
     return
