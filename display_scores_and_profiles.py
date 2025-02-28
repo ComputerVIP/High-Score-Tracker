@@ -1,6 +1,7 @@
-
+#Fairus code for displaying the scores and profiles
 import csv
 
+#Function to print the profiles and scores
 def print_profiles():
     ans = input("What is your name?\n")
     found = False
@@ -18,5 +19,5 @@ def print_profiles():
                 break
     if not found:
         print("This profile doesn't exist please try again\n")  
-
+    
 print_profiles()
