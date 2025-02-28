@@ -18,5 +18,3 @@ def print_profiles():
                 break
     if not found:
         print("This profile doesn't exist please try again\n")  
-
-print_profiles()
