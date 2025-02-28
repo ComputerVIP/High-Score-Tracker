@@ -24,7 +24,7 @@ def write(profiles): # Writes the list of dictonary profiles onto the file
         writer.writeheader()
         writer.writerows(profiles)
 
-def add_profile(): # Creates a new profile and puts it onto the list of profiles
+def add_profile(score, game_name): # Creates a new profile and puts it onto the list of profiles
     name = input("What is your username for your new profile?:\n").strip()
     password = input("What is your password for your new profile?:\n").strip()
     genre = input("What is your favorite game genre?:\n").strip()
@@ -35,6 +35,7 @@ def add_profile(): # Creates a new profile and puts it onto the list of profiles
         "Box Score": 0,
         "Guess Score": 0,
         "Genre": genre }
+    new_profile[f"{game_name} Score"] = score
     return new_profile
 
 def create_profile_choice(): # Lets the user decide if they want to create a new profile or try to find their profile again
@@ -47,23 +48,21 @@ def create_profile_choice(): # Lets the user decide if they want to create a new
         if choice <= 0 or choice > 2:
             print("Not In Range")
             continue
-        elif choice > 0 or choice <= 2:
-            break
         return choice
 
 def add_score(score, game_name): # Adds the user's new score to their profile if they have its pasword or else it lets them create a new profile
     profiles = read_file()
     while True:
         found = False
-        name = input("What is your username?: ").strip()
+        name = input("What is your username?: ").strip().upper()
         for profile_ind, profile in enumerate(profiles):
-            if name == profile["Name"]:
+            if name == profile["Name"].upper():
                 found = True
                 found_ind = profile_ind
-                password = input("Found Your Profile!\nType Your Password:\n").strip()
-                if password == profile["Password"]:
+                password = input("Found Your Profile!\nType Your Password:\n").strip().upper()
+                if password == profile["Password"].upper():
                     break
-                elif password != profile["Password"]:
+                else:
                     print("That is not the correct password for this profile. Try Again")
                     continue
         if found == False:
@@ -71,7 +70,7 @@ def add_score(score, game_name): # Adds the user's new score to their profile if
             if choice == 1:
                 continue
             elif choice == 2:
-                profiles.append(add_profile(name))
+                profiles.append(add_profile(score, game_name))
                 print("Added Your Profile!")
                 found_ind = -1
                 break

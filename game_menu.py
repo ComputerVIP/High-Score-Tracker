@@ -1,5 +1,6 @@
 import pygame
 import random
+
 repeat = 1
 
 class Clicked(pygame.sprite.Sprite):
@@ -17,23 +18,37 @@ class Clicked(pygame.sprite.Sprite):
 
 from box_react_game import clicky
 from react_game import react_test
-from number_guess import guess_1_4
+from number_guess import guess_1_4 as guess
 #Hi
 
 
 
 
-def gme_main(repeat):
-    ans = int(input("Which game would you like to play?\n    1 for reaction test box\n    2 for number guess\n    3 for reaction test regular\n    4 for exit\n"))
-    if ans == "1":
+def name_game(repeat):
+    try:
+        ans = int(input('''
+Which game would you like to play?
+    Reaction test hard(1)
+    Reaction test regular(2)
+    Number guess(3)
+    Exit(4)
+'''))
+    except TypeError:
+        print("Invalid input!")
+        repeat = 0
+        ans = "Error"
+    if ans == 1:
         clicky(Clicked("white", 200, 200))
-    elif ans == "2":
-        guess_1_4()
-    elif ans == "3":
+    elif ans == 2:
         react_test()
+    elif ans == 3:
+        guess()
     else:
         print("Goodbye!")
         repeat = 0
     return repeat
-while repeat > 0:
-    repeat = gme_main(repeat)
+
+if __name__ == "__main__":
+    repeat = 1
+    while repeat > 0:
+        repeat = name_game(repeat)

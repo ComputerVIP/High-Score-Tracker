@@ -1,7 +1,7 @@
 
 import csv
 
-def print_scores():
+def print_profiles():
     ans = input("What is your name?\n")
 
     with open("Scores.csv", "r") as file:
