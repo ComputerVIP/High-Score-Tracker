@@ -29,7 +29,7 @@ def name_game(repeat):
         ans = int(input('''
 Which game would you like to play?
     Reaction test hard(1)
-    Reaction test regular(2)
+    Reaction test easy(2)
     Number guess(3)
     Exit(4)
 '''))
