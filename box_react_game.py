@@ -3,7 +3,7 @@ import random
 from add_scores import add_score
 
 def clicky(rct):
-
+    print("You will need to click the white box as it appears to make your score increase!")
     game_name = "Box" # Hard reaction test
 
     score = 0
