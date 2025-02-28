@@ -3,12 +3,12 @@ import random
 from add_scores import add_score
 
 def react_test():
+    game_name = "React"  # Easy reaction test
 
-    game_name = "React" # Easy reaction test
-
-    #Variables to keep track of the score, and amount of rounds
+    # Variables to keep track of the score and amount of rounds
     score = 0
     rounds = 0
+    counter = 0
 
     # Initialize pygame
     pygame.init()
@@ -20,26 +20,34 @@ def react_test():
     waiting_for_click = False
     start_time = None  
     reaction_start_time = None  # Timer for reaction delay
+    check = None  # Variable to hold the score before waiting period
 
     while running:
-        screen.fill("black")  # Clear the screen
+        screen.fill("black")  # Clear the screen to black
 
         # Handle Pygame events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-            if event.type == pygame.MOUSEBUTTONDOWN and waiting_for_click:
-                click_detected = True
-                score -= 1
-                print("Score reduced, you can't click when it's not ready!")
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if waiting_for_click:
+                    click_detected = True
+                else:
+                    counter += 1
+                    print(f"Clicked early, you are at {counter}/5 misclicks")
+                    if counter >= 5:
+                        score -= 1  # Penalize early clicks
+                        print("Score reduced! Don't click too soon.")
+                        counter = 0
 
         # If waiting for the delay before reaction starts
         if reaction_start_time is not None:
             if pygame.time.get_ticks() >= reaction_start_time:  # Check if delay is over
-                screen.fill("white") #Screen goes white
+                screen.fill("white")  # Screen goes white
                 pygame.display.flip()
-                start_time = pygame.time.get_ticks()  # Starts timer
+                start_time = pygame.time.get_ticks()  # Start reaction timer
                 reaction_start_time = None  # Stop timer to wait random amount of time
+
                 waiting_for_click = True  # Wait for click
                 click_detected = False  # Reset to make sure isn't already clicked
 
@@ -50,22 +58,26 @@ def react_test():
 
         # Check if a click happened when screen white
         if waiting_for_click:
-            elapsed_time = (pygame.time.get_ticks() - start_time) / 1000  # Convert milleseconds to seconds
-            if click_detected:
+            elapsed_time = (pygame.time.get_ticks() - start_time) / 1000  # Convert milliseconds to seconds
 
-                #Add to score and rounds
-                rounds += 1
-                score += 1
-                print("Click detected in time! Score increased.")  
-                waiting_for_click = False  # Reset reaction phase
-                screen.fill("black")
-                pygame.display.flip()
-            elif elapsed_time > round((random.uniform(0.1,1)), 2):  # If it was not clicked in random amount of time, 0.1-1 seconds long
+            if click_detected:
+                if check is None:  # First valid click
+                    check = score  # Set 'check' to the current score on first click
+                    score += 1  # Add score on first valid click
+                    print("First click detected, score increased!")
+                else:
+                    print("Click detected, but no score change during waiting.")
+                
+                # Reset reaction phase
+                waiting_for_click = False
+                screen.fill("black")  # Fill the screen black after click
+                pygame.display.flip()  # Show the black screen
+            elif elapsed_time > round(random.uniform(0.1, 1), 2):  # If it was not clicked in random amount of time, 0.1-1 seconds long
                 rounds += 1
                 print("Too slow!")
+                screen.fill("black")  # Fill the screen black if too slow
+                pygame.display.flip()  # Show the black screen
                 waiting_for_click = False  # Reset reaction phase
-                screen.fill("black")
-                pygame.display.flip()
 
         clock.tick(60)  # Limit FPS to 60
 
@@ -75,5 +87,3 @@ def react_test():
         score = 0
     add_score(score, game_name)
     return
-
-

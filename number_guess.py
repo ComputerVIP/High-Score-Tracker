@@ -2,7 +2,8 @@ import random
 from add_scores import add_score
 
 def guess_1_4():
-
+    less = False
+    above = False
     game_name = "Guess" # Number Guessing Game
 
     rpt = input("How many rounds would you like to play?\n")
@@ -13,7 +14,17 @@ def guess_1_4():
     score = 0
     rounds = 0
     while rpt > 0:
-        gs = int(input("\n\nGuess a number 1-4!\n")) #Get user guess
+        # TODO: MUST ADD TRY AND EXCEPT FOR ERROR HANDLING!
+        try:
+            while not (less and above):
+                gs = int(input("\n\nGuess a number 1-4!\n"))
+                if gs <= 4:
+                    if gs >= 1:
+                        above = True
+                        less = True
+        except:
+            print("Not a valid number!")
+            gs = 0
         cgs = random.randint(1,4) #Computer guesses a number
         if gs == cgs: #If numbers are the same
             score += 1
