@@ -3,6 +3,7 @@ import csv
 
 def print_profiles():
     ans = input("What is your name?\n")
+    found = False
 
     with open("Scores.csv", "r") as file:
         reader = csv.reader(file)
@@ -13,5 +14,9 @@ def print_profiles():
                 print("Easy reaction test score: ",row[3])
                 print("Number guess score: ",row[4])
                 print("\nProfile: ",row[5])
-            else:
-                pass
+                found = True
+                break
+    if not found:
+        print("This profile doesn't exist please try again\n")  
+
+print_profiles()
