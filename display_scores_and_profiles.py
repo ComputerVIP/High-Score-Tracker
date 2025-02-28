@@ -1,9 +1,11 @@
-
+#Fairus code for displaying the scores and profiles
 import csv
 
+#Function to print the profiles and scores
 def print_profiles():
     ans = input("What is your name?\n") #Asks for name
     found = False
+    
 
     with open("Scores.csv", "r") as file:
         reader = csv.reader(file)
