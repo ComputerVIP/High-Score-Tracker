@@ -3,6 +3,7 @@ import random
 from add_scores import add_score
 
 def react_test():
+    print("Click the screen when it is white to make the score increase!")
     game_name = "React"  # Easy reaction test
 
     # Variables to keep track of the score and amount of rounds
