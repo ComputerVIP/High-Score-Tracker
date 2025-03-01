@@ -9,6 +9,7 @@ def clicky(rct):
 
     score = 0
     rounds = 0
+    count = 0
     pygame.init()
     screen = pygame.display.set_mode((1280, 720)) #Change this to make the display bigger, or not as big
     pygame.display.set_caption('Pygame Window')
