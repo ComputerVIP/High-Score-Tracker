@@ -18,5 +18,6 @@ def print_profiles():
                 print("\nFavourite genre: ",row[5])
                 found = True
                 break
+    #if no match found then display that it doesn't exist
     if not found:
         print("This profile doesn't exist please try again\n")   #Error handling
