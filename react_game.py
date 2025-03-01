@@ -11,6 +11,7 @@ def react_test():
     score = 0
     rounds = 0
     counter = 0
+    count = 0
 
     # Initialize pygame
     pygame.init()
