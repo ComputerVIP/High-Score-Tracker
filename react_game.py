@@ -73,6 +73,7 @@ def react_test():
                 if check is None:  # First valid click
                     check = score  # Set 'check' to the current score on first click
                     score += 1  # Add score on first valid click
+                    rounds += 1
                     print("First click detected, score increased!")
                 else:
                     print("Click detected, but no score change during waiting.")
